@@ -1,5 +1,6 @@
 const loadProducts = () => {
-  const url = `https://fakestoreapi.com/products`;
+  // const url = `https://fakestoreapi.com/products`;
+  const url = `http://127.0.0.1:5500/db.json`;
   fetch(url)
     .then((response) => response.json())
     .then((data) => showProducts(data));
@@ -19,9 +20,11 @@ const showProducts = (products) => {
       </div>
       <h3>${product.title}</h3>
       <p>Category: ${product.category}</p>
-      <h2>Price: $ ${product.price}</h2>
-      <button onclick="addToCart(${product.id},${product.price})" id="addToCart-btn" class="buy-now btn btn-success">add to cart</button>
-      <button id="details-btn" class="btn btn-danger">Details</button></div>
+      <h4 class="text-danger" style="color:#e52f2b";>Price: $ ${product.price}</h4>
+      <h5 class="text-warning" style="color:#f39c04;">Average Rating:  ${product.rating.rate}</h5>
+      <h5 class="text-warning" style="color:#f39c04;">Total Rating:  ${product.rating.count}</h5>
+      <button onclick="addToCart(${product.id},${product.price})" id="addToCart-btn" class="buy-now btn btn-success">Add To Cart</button>
+      <button onclick="showDetails(${product.id})" id="details-btn" class="btn btn-primary">Show Details</button></div>
       `;
     document.getElementById("all-products").appendChild(div);
   }

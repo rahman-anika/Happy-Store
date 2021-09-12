@@ -18,12 +18,17 @@ body {
   border-radius: 5px;
   margin: auto;
   margin-top: 50px;
-  border-right: none;
+  /* border-right: none; */
 }
 .search-button {
-  padding: 10px 50px;
+  padding: 3px 6px;
+  margin-right: 0px;
   border-radius: 25px;
-  margin-left: 20px;
+  /* margin-left: 20px; */
+  float: right;
+  border: 1px solid rgb(3, 118, 211);
+  /* margin-right: 0px; */
+ 
 }
 #all-products {
   display: grid;
