@@ -1,6 +1,6 @@
 const loadProducts = () => {
-  // const url = `https://fakestoreapi.com/products`;
-  const url = `http://127.0.0.1:5500/db.json`;
+  const url = `https://fakestoreapi.com/products`;
+  // const url = `http://127.0.0.1:5500/db.json`;
   fetch(url)
     .then((response) => response.json())
     .then((data) => showProducts(data));
@@ -20,6 +20,7 @@ const showProducts = (products) => {
       </div>
       <h3>${product.title}</h3>
       <p>Category: ${product.category}</p>
+      
       <h4 class="text-danger" style="color:#e52f2b";>Price: $ ${product.price}</h4>
       <h5 class="text-warning" style="color:#f39c04;">Average Rating:  ${product.rating.rate}</h5>
       <h5 class="text-warning" style="color:#f39c04;">Total Rating:  ${product.rating.count}</h5>
@@ -37,6 +38,37 @@ const addToCart = (id, price) => {
   updateTaxAndCharge();
   updateTotal();
   document.getElementById("total-Products").innerText = count;
+};
+
+
+const detailDiv = document.createElement("div");
+
+const showDetails = (id) => {
+
+
+  detailDiv.innerHTML = "";
+
+
+  fetch(`https://fakestoreapi.com/products/${id}`)
+    .then((response) => response.json())
+    .then((data) => {
+
+      console.log(data);
+      detailDiv.innerHTML = `
+        <div class="col-md-6">
+            <h1>${data.title}</h1>
+            <h4 style="color:green">Description: ${data.description}</h4>
+            <h4 style="color:red;">Price: ${data.price}</h4>
+            
+        </div>
+      `;
+    });
+
+
+
+  document.getElementById("product-detail").appendChild(detailDiv);
+
+
 };
 
 const getInputValue = (id) => {
@@ -81,6 +113,7 @@ const updateTotal = () => {
   const grandTotal =
     getInputValue("price") + getInputValue("delivery-charge") +
     getInputValue("total-tax");
+  const grandTotalFinal = grandTotal.toFixed(2);
   // console.log(grandTotal);
-  document.getElementById("total").innerText = grandTotal;
+  document.getElementById("total").innerText = grandTotalFinal;
 };
