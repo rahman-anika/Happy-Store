@@ -1,3 +1,6 @@
+
+// all products loading using api
+
 const loadProducts = () => {
   const url = `https://fakestoreapi.com/products`;
   // const url = `http://127.0.0.1:5500/db.json`;
@@ -14,6 +17,8 @@ const showProducts = (products) => {
     const image = product.image;
     const div = document.createElement("div");
     div.classList.add("product");
+
+    // single product loading area and buttons
     div.innerHTML = `<div class="single-product">
       <div>
     <img class="product-image" src=${image}></img>
@@ -24,13 +29,26 @@ const showProducts = (products) => {
       <h4 class="text-danger" style="color:#e52f2b";>Price: $ ${product.price}</h4>
       <h5 class="text-warning" style="color:#f39c04;">Average Rating:  ${product.rating.rate}</h5>
       <h5 class="text-warning" style="color:#f39c04;">Total Rating:  ${product.rating.count}</h5>
+
+
+     
+      <div class="button-group">
       <button onclick="addToCart(${product.id},${product.price})" id="addToCart-btn" class="buy-now btn btn-success">Add To Cart</button>
-      <button onclick="showDetails(${product.id})" id="details-btn" class="btn btn-primary">Show Details</button></div>
+      <button onclick="showDetails(${product.id})" id="details-btn" class="btn btn-primary">Show Details</button>
+      </div>
+     </div>
       `;
+
+
     document.getElementById("all-products").appendChild(div);
   }
 };
+
+
 let count = 0;
+
+// addToCart starts 
+
 const addToCart = (id, price) => {
   count = count + 1;
   updatePrice("price", price);
@@ -42,6 +60,8 @@ const addToCart = (id, price) => {
 
 
 const detailDiv = document.createElement("div");
+
+// showDetails starts 
 
 const showDetails = (id) => {
 
@@ -58,7 +78,7 @@ const showDetails = (id) => {
         <div class="col-md-6">
             <h1>${data.title}</h1>
             <h4 style="color:green">Description: ${data.description}</h4>
-            <h4 style="color:red;">Price: ${data.price}</h4>
+            <h4 style="color:red;">Price: $${data.price}</h4>
             
         </div>
       `;
@@ -70,6 +90,8 @@ const showDetails = (id) => {
 
 
 };
+
+// converting to float and return
 
 const getInputValue = (id) => {
   const element = document.getElementById(id).innerText;

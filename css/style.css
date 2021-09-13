@@ -2,6 +2,11 @@ body {
   overflow-x: hidden;
   font-family: "Montserrat", sans-serif;
 }
+
+/* search area starts  */
+
+/* search field starts */
+
 .search-field {
   border: none;
   border-radius: 50px;
@@ -12,6 +17,11 @@ body {
   outline: none;
   border: none;
 }
+
+/* search field ends  */
+
+/* search box starts  */
+
 .search-box {
   border: 1px solid rgb(3, 118, 211);
   width: 281px;
@@ -20,6 +30,11 @@ body {
   margin-top: 50px;
   /* border-right: none; */
 }
+
+/* search box ends  */
+
+/* search button starts  */
+
 .search-button {
   padding: 3px 6px;
   margin-right: 0px;
@@ -30,6 +45,14 @@ body {
   /* margin-right: 0px; */
  
 }
+
+/* search button ends  */
+
+/* search area ends  */
+
+
+/* all products showing area starts  */
+
 #all-products {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -39,20 +62,61 @@ body {
   margin: auto;
   align-items: center;
   justify-content: center;
+  
 }
+
+/* single product showing area starts */
+
 .single-product {
+  margin: 10px;
   padding: 10px;
   transition: 0.6s;
+  /* border:1px solid rgb(235, 233, 231); */
+  border:1px solid #D0A092;
+  border-radius: 5px;
+  height:500px;
+  background-color: antiquewhite;
+  position: relative;
+  
+  
 }
 .single-product:hover {
   box-shadow: 4px 4px 7px gray;
   border-radius: 10px;
   border: 1px solid cyan;
 }
+
+/* product image showing area starts  */
+
 .product-image {
   width: 150px;
   height: 150px;
 }
+
+/* addToCart and showDetails button area starts  */
+
+.button-group{
+
+position: absolute;
+left: 0; 
+bottom: 20px; 
+right: 0;
+/* text-align: center; */
+/* bottom: 20px; */
+/* justify-content: center; */
+/* align-items: center; */
+/* display: flex;  */
+
+}
+
+/* addToCart and showDetails button area ends  */
+
+
+/* single product showing area ends  */
+
+
+/* my cart area starts  */
+
 .cart {
   width: 350px;
   /* border: 1px solid green; */
@@ -65,6 +129,11 @@ body {
 .cart-main {
   padding-right: 30px;
 }
+
+/* my cart area ends  */
+
+/* media query  */
+
 @media only screen and (max-width: 768px) {
   #all-products {
     display: grid;
